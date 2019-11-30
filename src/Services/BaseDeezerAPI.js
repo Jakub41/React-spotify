@@ -8,7 +8,7 @@ const createAPIQUery = urlGenerator => async (...params) => {
       "x-rapidapi-key": DEEZER_KEY
     };
     const response = await fetch(url, { method: "GET", headers });
-    const json = response.json();
+    const json = await response.json();
     return {
       success: true,
       ...json
