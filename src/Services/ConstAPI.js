@@ -1,0 +1,21 @@
+// Deezer API
+const DEEZER_URL = process.env.REACT_APP_DEEZER_API_URL
+const DEEZER_HOST = process.env.REACT_APP_DEEZER_API_HOST
+const DEEZER_KEY = process.env.REACT_APP_DEEZER_API_KEY
+
+// Comment API
+const COMMENT_URL = process.env.REACT_APP_COMMENT_API_URL
+const COMMENT_USER = process.env.REACT_APP_COMMENT_API_USERNAME
+const COMMENT_PASS = process.env.REACT_APP_COMMENT_API_PASSWORD
+
+export {
+  // DEEZER
+  DEEZER_URL,
+  DEEZER_HOST,
+  DEEZER_KEY,
+
+  // Comment
+  COMMENT_URL,
+  COMMENT_USER,
+  COMMENT_PASS
+}
