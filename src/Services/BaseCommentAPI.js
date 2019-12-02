@@ -1,12 +1,15 @@
 import { COMMENT_USER, COMMENT_PASS } from "./ConstAPI";
 
-export const createCommentAPIQUery =(urlGenerator, method='GET') => async (body, ...params) => {
+export const createCommentAPIQUery = (urlGenerator, method = "GET") => async (
+  body,
+  ...params
+) => {
   try {
     const url = urlGenerator(...params);
     const token = btoa(COMMENT_USER + ":" + COMMENT_PASS);
     const credentials = {
       method: method,
-      body:body,
+      body: body,
       headers: new Headers({
         Authorization: "Basic " + token,
         "Content-Type": "application/json",

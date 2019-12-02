@@ -9,10 +9,10 @@ const createAPIQUery = urlGenerator => async (...params) => {
     };
     const response = await fetch(url, { method: "GET", headers });
     const json = await response.json();
-    return ({
+    return {
       success: true,
       ...json
-    });
+    };
   } catch {
     return {
       success: false,
@@ -22,8 +22,6 @@ const createAPIQUery = urlGenerator => async (...params) => {
     };
   }
 };
-
-
 
 export const getSearch = createAPIQUery(
   search => `${DEEZER_URL}/search?q=${search}`
@@ -35,4 +33,3 @@ export const getArtist = createAPIQUery(
 export const getAlbum = createAPIQUery(
   search => `${DEEZER_URL}/album/${search}`
 );
-
