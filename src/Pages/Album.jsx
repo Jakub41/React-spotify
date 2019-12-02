@@ -67,10 +67,10 @@ class Album extends Component {
                 <h4>
                   Artist: <b>{AlbumArtist.name}</b>
                 </h4>
-                {AlbumTracks.map(O => (
+                {AlbumTracks.map((O, i) => (
                   <div style={{ margin: "10px" }}>
                     <p>{O.title}</p>
-                    <Button
+                    <Button key={i}
                       onClick={() => {
                         this.setState({
                           playing: O.preview,
