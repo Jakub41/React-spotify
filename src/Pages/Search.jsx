@@ -4,6 +4,7 @@ import Slider from "react-slick";
 import { getSearch } from "../Services/BaseDeezerAPI.js";
 import { Link } from "react-router-dom";
 import Footer from "../Components/Footer/Footer.jsx";
+import { Spinner } from "../Components/Spinner/Spinner.js";
 import { FaPlay } from "react-icons/fa";
 
 const Search = () => {
@@ -13,10 +14,17 @@ const Search = () => {
   const [playingImage, setPlayingImage] = useState({});
   const [playingDesc, setPlayingDesc] = useState(null);
   const [playingArtist, setPlayingArtist] = useState(null);
+  const [displaySpinner, setDisplaySpinner] = useState(false);
 
   if (search != null && search.length >= 3) {
     const fetchAsync = async () => {
-      await getSearch(search).then(data => setArtists(data), setSearch(null));
+      await getSearch(search).then(
+        data => (
+          setDisplaySpinner(true),
+          setTimeout(() => (setArtists(data), setDisplaySpinner(false)), 2000),
+          setSearch(null)
+        )
+      );
     };
     fetchAsync();
   }
@@ -37,9 +45,34 @@ const Search = () => {
     infinite: true,
     speed: 500,
     slidesToShow: 3,
-    slidesToScroll: 3,
-    nextArrow: <Arrow />,
-    prevArrow: <Arrow />
+    slidesToScroll: 1,
+    initialSlide: 1,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
   };
   const handleChange = event => {
     event.preventDefault();
@@ -100,6 +133,7 @@ const Search = () => {
               </Container>
             ))}
         </Slider>
+        <Spinner displaySpinner={displaySpinner} />
       </Container>
       <Footer
         artist={playingArtist}

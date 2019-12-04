@@ -1,4 +1,5 @@
 import { DEEZER_URL, DEEZER_HOST, DEEZER_KEY } from "./ConstAPI";
+import PropTypes from "prop-types";
 
 const createAPIQUery = urlGenerator => async (...params) => {
   try {
@@ -33,3 +34,9 @@ export const getArtist = createAPIQUery(
 export const getAlbum = createAPIQUery(
   search => `${DEEZER_URL}/album/${search}`
 );
+
+createAPIQUery.propTypes = {
+  headers: PropTypes.array,
+  url: PropTypes.string,
+  response: PropTypes.object
+};

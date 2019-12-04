@@ -10,6 +10,7 @@
     "react": "^16.12.0",
     "react-bootstrap": "^1.0.0-beta.16",
     "react-bootstrap-sidebar": "0.0.1",
+    "react-crud-table": "0.0.8",
     "react-dom": "^16.12.0",
     "react-howler": "^3.7.4",
     "react-icons": "^3.8.0",

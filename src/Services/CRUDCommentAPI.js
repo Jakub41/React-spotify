@@ -1,24 +1,6 @@
 import { createCommentAPIQUery } from "./BaseCommentAPI";
 import { COMMENT_URL } from "./ConstAPI";
 
-// export const getAllComments = createCommentAPIQUery(
-//   asin => `${COMMENT_URL}/comments/${asin}`
-// );
-
-// export const addComment = createCommentAPIQUery(body => {
-//   `${COMMENT_URL}/comments`, (this.credentials.method = "POST");
-//   this.credentials.body = JSON.stringify(body);
-// });
-
-// export const updateComment = createCommentAPIQUery((id, body) => {
-//   `${COMMENT_URL}/comments/${id}`, (this.credentials.method = "PUT");
-//   this.credentials.body = JSON.stringify(body);
-// });
-
-// export const deleteComment = createCommentAPIQUery(id => {
-//   `${COMMENT_URL}/comments/${id}`, (this.credentials.method = "DELETE");
-// });
-
 export const getAllComments = createCommentAPIQUery(asin => {
   return `${COMMENT_URL}/comments/${asin}`;
 });
@@ -41,4 +23,4 @@ export const deleteComment = createCommentAPIQUery(id => {
   return `${COMMENT_URL}/comments/${id}`;
 }, "delete");
 
-getAllComments(null, "tt2488496");
+/* getAllComments(null, "tt2488496"); */

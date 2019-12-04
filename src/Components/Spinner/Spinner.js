@@ -1,16 +1,22 @@
 import React from "react";
-import { usePromiseTracker } from "react-promise-tracker";
 import Loader from "react-loader-spinner";
-import "./spinner.scss";
 
 export const Spinner = props => {
-  const { promiseInProgress } = usePromiseTracker();
-
   return (
-    promiseInProgress && (
-      <div className="spinner">
-        <Loader type="ThreeDots" color="#2BAD60" height="100" width="100" />
-      </div>
-    )
+    <div
+      style={{
+        display: props.displaySpinner ? "block" : "none",
+        position: "relative",
+        zIndex: "91209190"
+      }}
+    >
+      <Loader
+        type="Audio"
+        color="#e84e0f"
+        height={100}
+        width={100}
+        timeout={10000}
+      />
+    </div>
   );
 };
