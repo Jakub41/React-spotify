@@ -24,6 +24,7 @@ function Sidenav() {
         </Link>
         <Link
           to="#"
+          onClick={e => e.preventDefault}
           className="list-group-item list-group-item-action bg-light"
         >
           {" "}
